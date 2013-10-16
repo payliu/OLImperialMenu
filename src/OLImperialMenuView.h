@@ -26,6 +26,7 @@ typedef NS_ENUM (NSUInteger, ImperialDireciton) {
 @property (nonatomic, assign, readonly) ImperialDireciton direction;
 
 @property (nonatomic, strong) UIView *backgroundView;  // 可以設定背景, 預設: RGB(58,58,58)
+@property (nonatomic, assign) BOOL disableBackgroundView; // default  NO
 @property (nonatomic, strong) UIImageView *manuBackgroudView;
 @property (nonatomic, strong) UIView *decoView;
 @property (nonatomic, weak) id<OLImperialMenuViewDelegate> delegate;

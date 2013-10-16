@@ -64,7 +64,10 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
     if (_backgroundView.superview == nil) {
 
-        [self.superview insertSubview:_backgroundView belowSubview:self];
+        if (self.disableBackgroundView == NO) {
+
+            [self.superview insertSubview:_backgroundView belowSubview:self];
+        }
     }
 
     return _backgroundView;
@@ -158,7 +161,9 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
         [self setupGesture];
 
-        // self.backgroundColor = [UIColor redColor]; // for debug
+        _disableBackgroundView = NO;
+
+        // self.backgroundColor = [UIColor redColor];  // for debug
     }
 
     return self;
@@ -190,7 +195,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 /* action: tapGestureRecognizer */
 - (void) singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     [self setImperialMenuOpen:(_open == NO) animated:YES];
 }
@@ -637,7 +642,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
     } else if (_moveAgreement == MoveAgreementUnknow) {
 
-        NSLog(@"%@",NSStringFromSelector(_cmd));
+        NSLog(@"%@", NSStringFromSelector(_cmd));
 
         SEL sel = @selector(imperialMenuViewWillMove:open:);
 
@@ -654,8 +659,8 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
                 // user cancel it
                 NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
-                          , NSStringFromClass([self.delegate class])
-                          , NSStringFromSelector(sel));
+                      , NSStringFromClass([self.delegate class])
+                      , NSStringFromSelector(sel));
 
                 _moveAgreement = MoveAgreementDeny;
 
@@ -730,8 +735,8 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
             // user cancel it
             NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
-                      , NSStringFromClass([self.delegate class])
-                      , NSStringFromSelector(sel));
+                  , NSStringFromClass([self.delegate class])
+                  , NSStringFromSelector(sel));
 
         }
     }
@@ -795,8 +800,8 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
             // user cancel it
             NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
-                      , NSStringFromClass([self.delegate class])
-                      , NSStringFromSelector(sel));
+                  , NSStringFromClass([self.delegate class])
+                  , NSStringFromSelector(sel));
 
         }
     }

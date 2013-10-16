@@ -33,7 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - layout MBImperialMenuView
+#pragma mark - layout OLImperialMenuView
 
 - (void) layoutImperialMenu
 {
@@ -48,9 +48,10 @@
         frame = CGRectMake(0.0f, 353.0f, 275.0f, 88.0f);
     }
 
-    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:44.0f openSize:45.0f direction:ImperialDirecitonTop];
+    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:44.0f openSize:45.0f direction:ImperialDirecitonBottom];
 
     _imperialMenu.delegate = self;
+    // _imperialMenu.disableBackgroundView = NO;
 
     // UIView *bg = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // bg.backgroundColor = [UIColor redColor];
