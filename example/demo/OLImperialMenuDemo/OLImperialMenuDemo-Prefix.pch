@@ -13,4 +13,16 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #import <CocoaLumberjack/DDLog.h>
+    #import <OLCustomCocoaLumberjack/OLCustomDDLog.h>
+    #import <OLCategoryHelper/NSString+BOOL.h>
+#endif
+
+
+#pragma mark - DDLogLevel
+#ifdef DEBUG
+static int const ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static int const ddLogLevel = LOG_LEVEL_WARN;
 #endif

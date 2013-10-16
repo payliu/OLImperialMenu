@@ -16,24 +16,13 @@
 		6FD8CD45180DFC61008FF4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD8CD43180DFC61008FF4D2 /* Main.storyboard */; };
 		6FD8CD48180DFC61008FF4D2 /* OLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CD47180DFC61008FF4D2 /* OLViewController.m */; };
 		6FD8CD4A180DFC61008FF4D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FD8CD49180DFC61008FF4D2 /* Images.xcassets */; };
-		6FD8CD51180DFC62008FF4D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD8CD50180DFC62008FF4D2 /* XCTest.framework */; };
-		6FD8CD52180DFC62008FF4D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD8CD31180DFC61008FF4D2 /* Foundation.framework */; };
-		6FD8CD53180DFC62008FF4D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD8CD35180DFC61008FF4D2 /* UIKit.framework */; };
-		6FD8CD5B180DFC62008FF4D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD8CD59180DFC62008FF4D2 /* InfoPlist.strings */; };
-		6FD8CD5D180DFC62008FF4D2 /* OLImperialMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CD5C180DFC62008FF4D2 /* OLImperialMenuDemoTests.m */; };
+		6FD8CD6D180DFD52008FF4D2 /* OLImperialMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CD68180DFD52008FF4D2 /* OLImperialMenuView.m */; };
+		6FD8CD6E180DFD52008FF4D2 /* UIButton+PassTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CD6C180DFD52008FF4D2 /* UIButton+PassTouch.m */; };
+		D7B063434761442DBA296F81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BCA2A39591843C995D65D81 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6FD8CD54180DFC62008FF4D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FD8CD26180DFC61008FF4D2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6FD8CD2D180DFC61008FF4D2;
-			remoteInfo = OLImperialMenuDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		1BCA2A39591843C995D65D81 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD8CD2E180DFC61008FF4D2 /* OLImperialMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLImperialMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD8CD31180DFC61008FF4D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6FD8CD33180DFC61008FF4D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,11 +37,13 @@
 		6FD8CD46180DFC61008FF4D2 /* OLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OLViewController.h; sourceTree = "<group>"; };
 		6FD8CD47180DFC61008FF4D2 /* OLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLViewController.m; sourceTree = "<group>"; };
 		6FD8CD49180DFC61008FF4D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6FD8CD4F180DFC62008FF4D2 /* OLImperialMenuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OLImperialMenuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD8CD50180DFC62008FF4D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6FD8CD58180DFC62008FF4D2 /* OLImperialMenuDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OLImperialMenuDemoTests-Info.plist"; sourceTree = "<group>"; };
-		6FD8CD5A180DFC62008FF4D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6FD8CD5C180DFC62008FF4D2 /* OLImperialMenuDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLImperialMenuDemoTests.m; sourceTree = "<group>"; };
+		6FD8CD67180DFD52008FF4D2 /* OLImperialMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImperialMenuView.h; sourceTree = "<group>"; };
+		6FD8CD68180DFD52008FF4D2 /* OLImperialMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImperialMenuView.m; sourceTree = "<group>"; };
+		6FD8CD69180DFD52008FF4D2 /* OLImperialMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImperialMenuViewDelegate.h; sourceTree = "<group>"; };
+		6FD8CD6B180DFD52008FF4D2 /* UIButton+PassTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PassTouch.h"; sourceTree = "<group>"; };
+		6FD8CD6C180DFD52008FF4D2 /* UIButton+PassTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PassTouch.m"; sourceTree = "<group>"; };
+		C92B20FEE3A8442FB40F7DF4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,16 +54,7 @@
 				6FD8CD34180DFC61008FF4D2 /* CoreGraphics.framework in Frameworks */,
 				6FD8CD36180DFC61008FF4D2 /* UIKit.framework in Frameworks */,
 				6FD8CD32180DFC61008FF4D2 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6FD8CD4C180DFC62008FF4D2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6FD8CD51180DFC62008FF4D2 /* XCTest.framework in Frameworks */,
-				6FD8CD53180DFC62008FF4D2 /* UIKit.framework in Frameworks */,
-				6FD8CD52180DFC62008FF4D2 /* Foundation.framework in Frameworks */,
+				D7B063434761442DBA296F81 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,10 +64,12 @@
 		6FD8CD25180DFC61008FF4D2 = {
 			isa = PBXGroup;
 			children = (
+				6FD8CD66180DFD52008FF4D2 /* src */,
 				6FD8CD37180DFC61008FF4D2 /* OLImperialMenuDemo */,
-				6FD8CD56180DFC62008FF4D2 /* OLImperialMenuDemoTests */,
+				6FD8CD38180DFC61008FF4D2 /* Supporting Files */,
 				6FD8CD30180DFC61008FF4D2 /* Frameworks */,
 				6FD8CD2F180DFC61008FF4D2 /* Products */,
+				C92B20FEE3A8442FB40F7DF4 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				6FD8CD2E180DFC61008FF4D2 /* OLImperialMenuDemo.app */,
-				6FD8CD4F180DFC62008FF4D2 /* OLImperialMenuDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +88,7 @@
 				6FD8CD33180DFC61008FF4D2 /* CoreGraphics.framework */,
 				6FD8CD35180DFC61008FF4D2 /* UIKit.framework */,
 				6FD8CD50180DFC62008FF4D2 /* XCTest.framework */,
+				1BCA2A39591843C995D65D81 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,7 +102,6 @@
 				6FD8CD46180DFC61008FF4D2 /* OLViewController.h */,
 				6FD8CD47180DFC61008FF4D2 /* OLViewController.m */,
 				6FD8CD49180DFC61008FF4D2 /* Images.xcassets */,
-				6FD8CD38180DFC61008FF4D2 /* Supporting Files */,
 			);
 			path = OLImperialMenuDemo;
 			sourceTree = "<group>";
@@ -132,24 +115,28 @@
 				6FD8CD3F180DFC61008FF4D2 /* OLImperialMenuDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = OLImperialMenuDemo;
 			sourceTree = "<group>";
 		};
-		6FD8CD56180DFC62008FF4D2 /* OLImperialMenuDemoTests */ = {
+		6FD8CD66180DFD52008FF4D2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				6FD8CD5C180DFC62008FF4D2 /* OLImperialMenuDemoTests.m */,
-				6FD8CD57180DFC62008FF4D2 /* Supporting Files */,
+				6FD8CD6A180DFD52008FF4D2 /* UIButton+PassTouch */,
+				6FD8CD67180DFD52008FF4D2 /* OLImperialMenuView.h */,
+				6FD8CD68180DFD52008FF4D2 /* OLImperialMenuView.m */,
+				6FD8CD69180DFD52008FF4D2 /* OLImperialMenuViewDelegate.h */,
 			);
-			path = OLImperialMenuDemoTests;
+			name = src;
+			path = ../../src;
 			sourceTree = "<group>";
 		};
-		6FD8CD57180DFC62008FF4D2 /* Supporting Files */ = {
+		6FD8CD6A180DFD52008FF4D2 /* UIButton+PassTouch */ = {
 			isa = PBXGroup;
 			children = (
-				6FD8CD58180DFC62008FF4D2 /* OLImperialMenuDemoTests-Info.plist */,
-				6FD8CD59180DFC62008FF4D2 /* InfoPlist.strings */,
+				6FD8CD6B180DFD52008FF4D2 /* UIButton+PassTouch.h */,
+				6FD8CD6C180DFD52008FF4D2 /* UIButton+PassTouch.m */,
 			);
-			name = "Supporting Files";
+			path = "UIButton+PassTouch";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FD8CD60180DFC62008FF4D2 /* Build configuration list for PBXNativeTarget "OLImperialMenuDemo" */;
 			buildPhases = (
+				218F8F9D1206419093C4071D /* Check Pods Manifest.lock */,
 				6FD8CD2A180DFC61008FF4D2 /* Sources */,
 				6FD8CD2B180DFC61008FF4D2 /* Frameworks */,
 				6FD8CD2C180DFC61008FF4D2 /* Resources */,
+				3844B2AF56D847D0A9618332 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,24 +161,6 @@
 			productReference = 6FD8CD2E180DFC61008FF4D2 /* OLImperialMenuDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6FD8CD4E180DFC62008FF4D2 /* OLImperialMenuDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6FD8CD63180DFC62008FF4D2 /* Build configuration list for PBXNativeTarget "OLImperialMenuDemoTests" */;
-			buildPhases = (
-				6FD8CD4B180DFC62008FF4D2 /* Sources */,
-				6FD8CD4C180DFC62008FF4D2 /* Frameworks */,
-				6FD8CD4D180DFC62008FF4D2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6FD8CD55180DFC62008FF4D2 /* PBXTargetDependency */,
-			);
-			name = OLImperialMenuDemoTests;
-			productName = OLImperialMenuDemoTests;
-			productReference = 6FD8CD4F180DFC62008FF4D2 /* OLImperialMenuDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,11 +170,6 @@
 				CLASSPREFIX = OL;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Octalord Information Inc.";
-				TargetAttributes = {
-					6FD8CD4E180DFC62008FF4D2 = {
-						TestTargetID = 6FD8CD2D180DFC61008FF4D2;
-					};
-				};
 			};
 			buildConfigurationList = 6FD8CD29180DFC61008FF4D2 /* Build configuration list for PBXProject "OLImperialMenuDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -219,7 +185,6 @@
 			projectRoot = "";
 			targets = (
 				6FD8CD2D180DFC61008FF4D2 /* OLImperialMenuDemo */,
-				6FD8CD4E180DFC62008FF4D2 /* OLImperialMenuDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,15 +200,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FD8CD4D180DFC62008FF4D2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		218F8F9D1206419093C4071D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD8CD5B180DFC62008FF4D2 /* InfoPlist.strings in Resources */,
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		3844B2AF56D847D0A9618332 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6FD8CD2A180DFC61008FF4D2 /* Sources */ = {
@@ -251,28 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FD8CD3E180DFC61008FF4D2 /* main.m in Sources */,
+				6FD8CD6E180DFD52008FF4D2 /* UIButton+PassTouch.m in Sources */,
+				6FD8CD6D180DFD52008FF4D2 /* OLImperialMenuView.m in Sources */,
 				6FD8CD42180DFC61008FF4D2 /* OLAppDelegate.m in Sources */,
 				6FD8CD48180DFC61008FF4D2 /* OLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FD8CD4B180DFC62008FF4D2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6FD8CD5D180DFC62008FF4D2 /* OLImperialMenuDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6FD8CD55180DFC62008FF4D2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6FD8CD2D180DFC61008FF4D2 /* OLImperialMenuDemo */;
-			targetProxy = 6FD8CD54180DFC62008FF4D2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6FD8CD3A180DFC61008FF4D2 /* InfoPlist.strings */ = {
@@ -289,14 +265,6 @@
 				6FD8CD44180DFC61008FF4D2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6FD8CD59180DFC62008FF4D2 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6FD8CD5A180DFC62008FF4D2 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -376,6 +344,7 @@
 		};
 		6FD8CD61180DFC62008FF4D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C92B20FEE3A8442FB40F7DF4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -389,6 +358,7 @@
 		};
 		6FD8CD62180DFC62008FF4D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C92B20FEE3A8442FB40F7DF4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -397,48 +367,6 @@
 				INFOPLIST_FILE = "OLImperialMenuDemo/OLImperialMenuDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		6FD8CD64180DFC62008FF4D2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OLImperialMenuDemo.app/OLImperialMenuDemo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OLImperialMenuDemo/OLImperialMenuDemo-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "OLImperialMenuDemoTests/OLImperialMenuDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		6FD8CD65180DFC62008FF4D2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OLImperialMenuDemo.app/OLImperialMenuDemo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OLImperialMenuDemo/OLImperialMenuDemo-Prefix.pch";
-				INFOPLIST_FILE = "OLImperialMenuDemoTests/OLImperialMenuDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -461,14 +389,7 @@
 				6FD8CD62180DFC62008FF4D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		6FD8CD63180DFC62008FF4D2 /* Build configuration list for PBXNativeTarget "OLImperialMenuDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6FD8CD64180DFC62008FF4D2 /* Debug */,
-				6FD8CD65180DFC62008FF4D2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

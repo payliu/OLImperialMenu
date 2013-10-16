@@ -1,9 +1,9 @@
 //
-//  OLAppDelegate.h
-//  OLImperialMenuDemo
+// OLAppDelegate.h
+// OLImperialMenuDemo
 //
-//  Created by Pay Liu on 13/10/16.
-//  Copyright (c) 2013年 Octalord Information Inc. All rights reserved.
+// Created by Pay Liu on 13/10/16.
+// Copyright (c) 2013年 Octalord Information Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
