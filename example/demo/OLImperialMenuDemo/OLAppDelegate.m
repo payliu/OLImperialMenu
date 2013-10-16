@@ -8,17 +8,10 @@
 
 #import "OLAppDelegate.h"
 
-/* logger system */
-#import <CocoaLumberjack/DDTTYLogger.h>
-#import <OLCustomCocoaLumberjack/OLDDFormatter.h>
-#import <NSLogger-CocoaLumberjack-connector/DDNSLoggerLogger.h>
-#import <NSLogger/LoggerClient.h>
-
 @implementation OLAppDelegate
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setupLoggerSystem];
 
     // Override point for customization after application launch.
     return YES;
@@ -49,60 +42,6 @@
 - (void) applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - Logger System
-
-/*
- * setup logger system,
- *    1. Lumberjack
- *    2. NSLogger
- *    3. NSLogger-CocoaLumberjack-connector
- *    4. custom formatter, PSDDForamtter
- *    5. XcodeColors
- *        setup :Edit Schema > Run {Project} > Arguments > add an environment variable, arg: NSLOGGER_BONJOUR_NAME
- *
- */
-- (void) setupLoggerSystem
-{
-    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // Lumberjack
-
-    OLDDFormatter *psLogger = [[OLDDFormatter alloc] init]; // custom format
-
-    [[DDTTYLogger sharedInstance] setLogFormatter:psLogger];
-
-#ifdef DEBUG
-
-    Boolean colorsEnabled = NO;
-
-    char *xcodeColors = getenv("XcodeColors");
-
-    if (xcodeColors != nil && strcmp(xcodeColors, "YES") == 0) {
-
-        colorsEnabled = YES;
-    }
-
-    DDLogVerbose(@"colorsEnabled: %@", NSStringFromBOOL(colorsEnabled));
-
-    [[DDTTYLogger sharedInstance] setColorsEnabled:colorsEnabled]; // XcodeColors plugins
-
-    [DDLog addLogger:[DDNSLoggerLogger sharedInstance]]; // connect to NSLogger
-
-    /* Edit Schema > Run {Project} > Arguments > add an environment variable
-     * arg: NSLOGGER_BONJOUR_NAME
-     * value: your bonjor name for NSLogger.app
-     */
-    char *bonjorName = getenv("NSLOGGER_BONJOUR_NAME");
-
-    DDLogVerbose(@"bonjorName: %s", bonjorName);
-
-    if (bonjorName != nil) {
-        LoggerSetupBonjour(NULL, NULL, (__bridge CFStringRef)[NSString stringWithUTF8String:bonjorName]);  // for your NSLogger.app
-    } else {
-        LoggerSetupBonjour(NULL, NULL, (__bridge CFStringRef)[NSString stringWithUTF8String:"public"]);  // for your NSLogger.app
-    }
-
-#endif
 }
 
 @end

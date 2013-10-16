@@ -1,19 +1,7 @@
 platform :ios, "6.0"
 workspace 'OLImperialMenuDemo'
 
-# common
-pod 'BlocksKit', '~> 1.8.2'
-
-# logger
-pod 'CocoaLumberjack', '~> 1.6.2'
-pod 'NSLogger', '~> 1.1'
-# '~> 1.3',
-pod 'NSLogger-CocoaLumberjack-connector', :podspec => 'https://gist.github.com/payliu/6516836/raw/NSLogger-CocoaLumberjack-connector.podspec'
-pod 'OLCustomCocoaLumberjack', :podspec => 'https://gist.github.com/payliu/6519088/raw/OLCustomCocoaLumberjack.podspec'
-
-
 # OLCategoryHelper
-# , '~> 0.0.1'
-pod 'OLCategoryHelper/UIView+ViewFrameGeometry', :head
-pod 'OLCategoryHelper/NSString+BOOL', :head
-pod 'OLCategoryHelper/UIDevice+Resolutions', :head
+pod 'OLCategoryHelper/UIView+ViewFrameGeometry', '~> 0.0.2'
+pod 'OLCategoryHelper/NSString+BOOL', '~> 0.0.2'
+pod 'OLCategoryHelper/UIDevice+Resolutions', '~> 0.0.2'

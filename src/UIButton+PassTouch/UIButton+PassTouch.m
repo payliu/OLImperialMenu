@@ -13,15 +13,11 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
-
     [super touchesBegan:touches withEvent:event];
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
-
     [super touchesMoved:touches withEvent:event];
 
     if ([self.nextResponder.nextResponder isKindOfClass:[OLImperialMenuView class]] == YES) {
@@ -32,8 +28,6 @@
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
-
     if ([self.nextResponder.nextResponder isKindOfClass:[OLImperialMenuView class]] == NO) {
 
         [super touchesEnded:touches withEvent:event];
@@ -58,8 +52,6 @@
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
-
     [super touchesCancelled:touches withEvent:event];
 }
 

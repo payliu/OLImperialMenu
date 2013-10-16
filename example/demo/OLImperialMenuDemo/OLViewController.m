@@ -10,6 +10,7 @@
 
 #import <OLCategoryHelper/UIDevice+Resolutions.h>
 #import <OLCategoryHelper/UIView+ViewFrameGeometry.h>
+#import <OLCategoryHelper/NSString+BOOL.h>
 
 @implementation OLViewController
 
@@ -132,7 +133,7 @@
 
 - (BOOL) imperialMenuViewWillMove:(OLImperialMenuView *)menuView open:(BOOL)open
 {
-    DDLogVerbose(@"%@:%@ %@", THIS_FILE, THIS_METHOD, NSStringFromBOOL(open));
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     [self animateImperialMenu:NO];
 
@@ -141,7 +142,7 @@
 
 - (void) imperialMenuViewDidMove:(OLImperialMenuView *)menuView open:(BOOL)open
 {
-    DDLogVerbose(@"%@:%@ %@", THIS_FILE, THIS_METHOD, NSStringFromBOOL(open));
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     if (open == NO) {
         [self animateImperialMenu:YES];
@@ -150,14 +151,14 @@
 
 - (BOOL) imperialMenuViewWillOpen:(OLImperialMenuView *)menuView
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     return YES;
 }
 
 - (void) imperialMenuViewDidOpen:(OLImperialMenuView *)menuView
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     [self animateImperialMenu:NO];
 
@@ -166,14 +167,15 @@
 
 - (BOOL) imperialMenuViewWillClose:(OLImperialMenuView *)menuView
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
 
     return YES;
 }
 
 - (void) imperialMenuViewDidClose:(OLImperialMenuView *)menuView
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     [self animateImperialMenu:YES];
 
@@ -184,17 +186,16 @@
 
 - (void) onSetting
 {
-    DDLogMethod();
+    NSLog(@"onSetting");
 }
 
 - (void) onInstruction
 {
-    DDLogMethod();
+    NSLog(@"onInstruction");
 }
 
 - (void) onRecord
 {
-    DDLogMethod();
-}
+      NSLog(@"onRecord");}
 
 @end

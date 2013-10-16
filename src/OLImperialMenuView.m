@@ -190,8 +190,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 /* action: tapGestureRecognizer */
 - (void) singleTapGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
-
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@",NSStringFromSelector(_cmd));
 
     [self setImperialMenuOpen:(_open == NO) animated:YES];
 }
@@ -206,7 +205,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
     CGPoint touchPosition = [t locationInView:self.superview];
 
-    DDLogVerbose(@"%@:%@, %@", THIS_FILE, THIS_METHOD, NSStringFromCGPoint(touchPosition));
+    NSLog(@"%@, %@", NSStringFromSelector(_cmd), NSStringFromCGPoint(touchPosition));
 
     [self decorateView];
     [self backgroundView];     // fire to alloc backgroundView if don't exist. 否則在第一次，往左邊拉動時候，會閃黑 (在動畫 驅動第一次）
@@ -228,7 +227,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
         CGPoint previousTouchLocation = [t previousLocationInView:self.superview];
 
-        DDLogVerbose(@"%@:%@, %@ -> %@", THIS_FILE, THIS_METHOD, NSStringFromCGPoint(previousTouchLocation), NSStringFromCGPoint(touchLocation));
+        NSLog(@"%@, %@ -> %@", NSStringFromSelector(_cmd), NSStringFromCGPoint(previousTouchLocation), NSStringFromCGPoint(touchLocation));
 
         if (self.direction == ImperialDirecitonLeft || self.direction == ImperialDirecitonRight) {
 
@@ -282,7 +281,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
     CGPoint touchPosition = [t locationInView:self.superview];
 
-    DDLogVerbose(@"%@:%@, %@", THIS_FILE, THIS_METHOD, NSStringFromCGPoint(touchPosition));
+    NSLog(@"%@, %@", NSStringFromSelector(_cmd), NSStringFromCGPoint(touchPosition));
 
     [self gotoRightPosition];
 
@@ -343,7 +342,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 {
     if (self.isOpen == YES) {
 
-        DDLogVerbose(@"%@:%@, %f, %f", THIS_FILE, THIS_METHOD, self.right, self.thresholdRight);
+        NSLog(@"%@, %f, %f", NSStringFromSelector(_cmd), self.right, self.thresholdRight);
 
         if ((self.direction == ImperialDirecitonLeft && self.right > self.thresholdRight) ||
             (self.direction == ImperialDirecitonRight && self.left < self.thresholdLeft) ||
@@ -361,7 +360,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
         }
     } else {
 
-        DDLogVerbose(@"%@:%@, %f, %f", THIS_FILE, THIS_METHOD, self.right, self.thresholdLeft);
+        NSLog(@"%@, %f, %f", NSStringFromSelector(_cmd), self.right, self.thresholdLeft);
 
         if ((self.direction == ImperialDirecitonLeft && self.right < self.thresholdLeft) ||
             (self.direction == ImperialDirecitonRight && self.left > self.thresholdRight) ||
@@ -571,7 +570,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
 - (void) setImperialMenuOpen:(BOOL)open animated:(BOOL)animated
 {
-    DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     if (self.open == open) {
 
@@ -638,7 +637,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
     } else if (_moveAgreement == MoveAgreementUnknow) {
 
-        DDLogVerbose(@"%@:%@", THIS_FILE, THIS_METHOD);
+        NSLog(@"%@",NSStringFromSelector(_cmd));
 
         SEL sel = @selector(imperialMenuViewWillMove:open:);
 
@@ -654,9 +653,9 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
             if (continued == NO) {
 
                 // user cancel it
-                DDLogWarn(@"%@:%@ [delegate(%@) %@] return %@", THIS_FILE, THIS_METHOD
+                NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
                           , NSStringFromClass([self.delegate class])
-                          , NSStringFromSelector(sel), NSStringFromBOOL(continued));
+                          , NSStringFromSelector(sel));
 
                 _moveAgreement = MoveAgreementDeny;
 
@@ -667,7 +666,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
         }
     } else {
 
-        DDLogWarn(@"%@:%@, _moveAgreement(%d) is undefined.", THIS_FILE, THIS_METHOD, _moveAgreement);
+        NSLog(@"%@, _moveAgreement(%d) is undefined.", NSStringFromSelector(_cmd), _moveAgreement);
 
         continued = NO;
     }
@@ -730,9 +729,9 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
         if (continued == NO) {
 
             // user cancel it
-            DDLogWarn(@"%@:%@ [delegate(%@) %@] return %@", THIS_FILE, THIS_METHOD
+            NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
                       , NSStringFromClass([self.delegate class])
-                      , NSStringFromSelector(sel), NSStringFromBOOL(continued));
+                      , NSStringFromSelector(sel));
 
         }
     }
@@ -795,9 +794,9 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
         if (continued == NO) {
 
             // user cancel it
-            DDLogWarn(@"%@:%@ [delegate(%@) %@] return %@", THIS_FILE, THIS_METHOD
+            NSLog(@"%@ [delegate(%@) %@] return NO", NSStringFromSelector(_cmd)
                       , NSStringFromClass([self.delegate class])
-                      , NSStringFromSelector(sel), NSStringFromBOOL(continued));
+                      , NSStringFromSelector(sel));
 
         }
     }

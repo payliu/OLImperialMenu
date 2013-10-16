@@ -1,41 +1,14 @@
 PODS:
-  - BlocksKit (1.8.3):
-    - libffi
-  - CocoaLumberjack (1.6.2)
-  - libffi (3.0.13)
-  - NSLogger (1.1)
-  - NSLogger-CocoaLumberjack-connector (1.3):
-    - CocoaLumberjack
-    - NSLogger
-  - OLCategoryHelper/NSString+BOOL (HEAD based on 0.0.2)
-  - OLCategoryHelper/UIDevice+Resolutions (HEAD based on 0.0.2)
-  - OLCategoryHelper/UIView+ViewFrameGeometry (HEAD based on 0.0.2)
-  - OLCustomCocoaLumberjack (0.0.2):
-    - CocoaLumberjack
+  - OLCategoryHelper/NSString+BOOL (0.0.2)
+  - OLCategoryHelper/UIDevice+Resolutions (0.0.2)
+  - OLCategoryHelper/UIView+ViewFrameGeometry (0.0.2)
 
 DEPENDENCIES:
-  - BlocksKit (~> 1.8.2)
-  - CocoaLumberjack (~> 1.6.2)
-  - NSLogger (~> 1.1)
-  - NSLogger-CocoaLumberjack-connector (from `https://gist.github.com/payliu/6516836/raw/NSLogger-CocoaLumberjack-connector.podspec`)
-  - OLCategoryHelper/NSString+BOOL (HEAD)
-  - OLCategoryHelper/UIDevice+Resolutions (HEAD)
-  - OLCategoryHelper/UIView+ViewFrameGeometry (HEAD)
-  - OLCustomCocoaLumberjack (from `https://gist.github.com/payliu/6519088/raw/OLCustomCocoaLumberjack.podspec`)
-
-EXTERNAL SOURCES:
-  NSLogger-CocoaLumberjack-connector:
-    :podspec: https://gist.github.com/payliu/6516836/raw/NSLogger-CocoaLumberjack-connector.podspec
-  OLCustomCocoaLumberjack:
-    :podspec: https://gist.github.com/payliu/6519088/raw/OLCustomCocoaLumberjack.podspec
+  - OLCategoryHelper/NSString+BOOL (~> 0.0.2)
+  - OLCategoryHelper/UIDevice+Resolutions (~> 0.0.2)
+  - OLCategoryHelper/UIView+ViewFrameGeometry (~> 0.0.2)
 
 SPEC CHECKSUMS:
-  BlocksKit: 27257f9cbbec0ea98c80ba83cc2ea7111ae62eb2
-  CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
-  libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
-  NSLogger: 4567fef08d0db18a89cce91b2053823fc0950738
-  NSLogger-CocoaLumberjack-connector: 8a09dd58684902e04947211bee91dc604b6ca9c6
   OLCategoryHelper: 9df55b38509cca748455a31098dc7b366a8876c5
-  OLCustomCocoaLumberjack: 7241238e67628e57fca643fa992d7f51c0f7820e
 
 COCOAPODS: 0.26.2
