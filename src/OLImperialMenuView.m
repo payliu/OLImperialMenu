@@ -12,14 +12,14 @@
 
 #pragma mark - Define Area
 
-#define kSCREEN_WIDTH [[UIScreen mainScreen] applicationFrame].size.width
-#define kSCREEN_HEIGHT [[UIScreen mainScreen] applicationFrame].size.height
+#define kSCREEN_WIDTH self.superview.bounds.size.width
+#define kSCREEN_HEIGHT self.superview.bounds.size.height
 #define kEXPAND_THRESHOLD_CENTER_HORIZONTAL ((kSCREEN_WIDTH - _openSize + _closeSize) * 0.5f)
 #define kEXPAND_THRESHOLD_CENTER_VERTICAL ((kSCREEN_HEIGHT - _openSize + _closeSize) * 0.5f)
 #define kEXPAND_THRESHOLD_FACTOR 0.4f
 #define kANIMATION_INTERVAL 0.2f
 #define kBACKGROUND_ALPHA 0.85f
-#define kMAX_MOVEMENT abs(_openPosition - _closePosition)
+#define kMAX_MOVEMENT abs(self.openPosition - self.closePosition)
 
 #pragma mark - Class Extension
 
@@ -75,7 +75,6 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
 - (void) setManuBackgroudView:(UIImageView *)manuBackgroudView
 {
-
     if (_manuBackgroudView == manuBackgroudView) {
 
         return;
@@ -92,72 +91,70 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
 }
 
+- (void) setClosePositionValue
+{
+    if (self.direction == ImperialDirecitonLeft) {
+
+        _closePosition = self.left;
+
+    } else if (self.direction == ImperialDirecitonRight) {
+
+        _closePosition = self.left;
+
+    } else if (self.direction == ImperialDirecitonTop) {
+
+        _closePosition = self.top;
+
+    } else if (self.direction == ImperialDirecitonBottom) {
+
+        _closePosition = self.top;
+    }
+}
+
+- (CGFloat) openPosition
+{
+    if (_openPosition != CGFLOAT_MAX) {
+
+        return _openPosition;
+    }
+
+    if (self.direction == ImperialDirecitonLeft) {
+
+        _openPosition = kSCREEN_WIDTH - _openSize - self.size.width;
+
+    } else if (self.direction == ImperialDirecitonRight) {
+
+        _openPosition = _openSize;
+
+    } else if (self.direction == ImperialDirecitonTop) {
+
+        _openPosition = kSCREEN_HEIGHT - _openSize - self.size.height;
+
+    } else if (self.direction == ImperialDirecitonBottom) {
+
+        _openPosition = _openSize;
+    }
+
+    return _openPosition;
+}
+
 #pragma mark - View lifecycle
 
 - (id) initWithFrame:(CGRect)frame closeSize:(CGFloat)closeSize openSize:(CGFloat)openSize direction:(ImperialDireciton)direction
 {
-    _direction = direction;
-
-    CGRect fit = CGRectZero;
-
-    if (direction == ImperialDirecitonLeft) {
-
-        fit = CGRectMake(closeSize - frame.size.width
-                         , frame.origin.y
-                         , frame.size.width
-                         , frame.size.height);
-
-    } else if (direction == ImperialDirecitonRight) {
-
-        fit = CGRectMake(kSCREEN_WIDTH - closeSize
-                         , frame.origin.y
-                         , frame.size.width
-                         , frame.size.height);
-
-    } else if (direction == ImperialDirecitonTop) {
-
-        fit = CGRectMake(frame.origin.x
-                         , closeSize - frame.size.height
-                         , frame.size.width
-                         , frame.size.height);
-
-    } else if (direction == ImperialDirecitonBottom) {
-
-        fit = CGRectMake(frame.origin.x
-                         , kSCREEN_HEIGHT - closeSize
-                         , frame.size.width
-                         , frame.size.height);
-
-    }
-
-    self = [super initWithFrame:fit];
+    self = [super initWithFrame:frame];
 
     if (self != nil) {
 
+        _closePosition = CGFLOAT_MAX;
+        _openPosition = CGFLOAT_MAX;
+
+        _direction = direction;
         _open = NO;
         _closeSize = closeSize;
         _openSize = openSize;
 
-        if (direction == ImperialDirecitonLeft) {
-
-            _closePosition = self.left;      // closeSize - self.frame.size.width
-            _openPosition = kSCREEN_WIDTH - _openSize - self.size.width;
-
-        } else if (direction == ImperialDirecitonRight) {
-
-            _closePosition = self.left;
-            _openPosition = _openSize;
-
-        } else if (direction == ImperialDirecitonTop) {
-
-            _closePosition = self.top;
-            _openPosition = kSCREEN_HEIGHT - _openSize - self.size.height;
-
-        } else if (direction == ImperialDirecitonBottom) {
-
-            _closePosition = self.top;
-            _openPosition = _openSize;
-        }
+        [self setClosePositionValue];
 
         [self setupGesture];
 
@@ -246,7 +243,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
                 self.left = left;
 
-                self.backgroundView.alpha = kBACKGROUND_ALPHA * abs(left - _closePosition) / kMAX_MOVEMENT;
+                self.backgroundView.alpha = kBACKGROUND_ALPHA * abs(left - self.closePosition) / kMAX_MOVEMENT;
 
                 _moving = YES;
 
@@ -266,7 +263,7 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 
                 self.top = top;
 
-                self.backgroundView.alpha = kBACKGROUND_ALPHA * abs(top - _closePosition) / kMAX_MOVEMENT;
+                self.backgroundView.alpha = kBACKGROUND_ALPHA * abs(top - self.closePosition) / kMAX_MOVEMENT;
 
                 _moving = YES;
 
@@ -490,11 +487,11 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 {
     if (self.direction == ImperialDirecitonLeft || self.direction == ImperialDirecitonRight) {
 
-        self.left = _openPosition;
+        self.left = self.openPosition;
 
     } else {
 
-        self.top = _openPosition;
+        self.top = self.openPosition;
     }
 
     self.backgroundView.alpha = kBACKGROUND_ALPHA;
@@ -504,11 +501,11 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 {
     if (self.direction == ImperialDirecitonLeft || self.direction == ImperialDirecitonRight) {
 
-        self.left = _closePosition;
+        self.left = self.closePosition;
 
     } else {
 
-        self.top = _closePosition;
+        self.top = self.closePosition;
     }
 
     self.backgroundView.alpha = 0.0f;
@@ -521,23 +518,23 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 {
     if (self.direction == ImperialDirecitonLeft) {
 
-        if (left >= _openPosition) {
+        if (left >= self.openPosition) {
 
-            left = _openPosition;
+            left = self.openPosition;
 
-        } else if (left <= _closePosition) {  // right <= _closeSize
+        } else if (left <= self.closePosition) {  // right <= _closeSize
 
-            left = _closePosition;
+            left = self.closePosition;
         }
     } else if (self.direction == ImperialDirecitonRight) {
 
-        if (left <= _openPosition) {
+        if (left <= self.openPosition) {
 
-            left = _openPosition;
+            left = self.openPosition;
 
-        } else if (left >= _closePosition) {
+        } else if (left >= self.closePosition) {
 
-            left = _closePosition;
+            left = self.closePosition;
         }
     }
 
@@ -548,23 +545,23 @@ typedef NS_ENUM (NSUInteger, MoveAgreement) {
 {
     if (self.direction == ImperialDirecitonTop) {
 
-        if (top >= _openPosition) {
+        if (top >= self.openPosition) {
 
-            top = _openPosition;
+            top = self.openPosition;
 
-        } else if (top <= _closePosition) {
+        } else if (top <= self.closePosition) {
 
-            top = _closePosition;
+            top = self.closePosition;
         }
     } else if (self.direction == ImperialDirecitonBottom) {
 
-        if (top <= _openPosition) {
+        if (top <= self.openPosition) {
 
-            top = _openPosition;
+            top = self.openPosition;
 
-        } else if (top >= _closePosition) {
+        } else if (top >= self.closePosition) {
 
-            top = _closePosition;
+            top = self.closePosition;
         }
     }
 

@@ -16,7 +16,6 @@
 
 - (void) dealloc
 {
-
     _imperialMenu.delegate = nil;
 }
 
@@ -24,33 +23,33 @@
 {
     [super viewDidLoad];
 
-    [self layoutImperialMenu];
-}
-
-- (void) didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self layoutImperialMenuLeft];
+    [self layoutImperialMenuRight];
+    [self layoutImperialMenuTop];
+    [self layoutImperialMenuBottom];
 }
 
 #pragma mark - layout OLImperialMenuView
 
-- (void) layoutImperialMenu
+- (void) layoutImperialMenuLeft
 {
     CGRect frame = CGRectZero;
 
+    CGFloat closeSize = 44.0f;
+
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes) {
 
-        frame = CGRectMake(0.0f, 439.0f, 275.0f, 88.0f);
+        frame = CGRectMake(-275.f + closeSize, 439.0f, 275.0f, 88.0f);
 
     } else {
 
-        frame = CGRectMake(0.0f, 353.0f, 275.0f, 88.0f);
+        frame = CGRectMake(-275.f + closeSize, 353.0f, 275.0f, 88.0f);
     }
 
-    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:44.0f openSize:45.0f direction:ImperialDirecitonBottom];
+    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:closeSize openSize:45.0f direction:ImperialDirecitonLeft];
 
     _imperialMenu.delegate = self;
+
     // _imperialMenu.disableBackgroundView = NO;
 
     // UIView *bg = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -70,64 +69,140 @@
     // [self.view insertSubview:_imperialMenu belowSubview:_flowerView];
     [self.view addSubview:_imperialMenu];
 
-    // animate
-    [self animateImperialMenu:YES];
-
 }
 
-- (void) animateImperialMenu:(BOOL)animated
+- (void) layoutImperialMenuRight
 {
-    if (animated == NO) {
+    CGRect frame = CGRectZero;
 
-        [self.imperialMenu.layer removeAllAnimations];
+    CGFloat closeSize = 44.0f;
+
+    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes) {
+
+        frame = CGRectMake(320.0f - closeSize, 439.0f, 275.0f, 88.0f);
 
     } else {
 
-        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-
-        anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        anim.duration = 2.5f;
-        anim.repeatCount = HUGE_VALF;
-        anim.autoreverses = YES;
-        anim.removedOnCompletion = NO; // to avoid animation gone after other operation
-        // anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.01f, 0.99f, 1.f)];
-        anim.toValue = [NSNumber numberWithFloat:8.f];
-
-        [self.imperialMenu.layer addAnimation:anim forKey:nil];
+        frame = CGRectMake(320.0f - closeSize, 353.0f, 275.0f, 88.0f);
     }
+
+    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:closeSize openSize:45.0f direction:ImperialDirecitonRight];
+
+    _imperialMenu.delegate = self;
+
+    // _imperialMenu.disableBackgroundView = NO;
+
+    // UIView *bg = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // bg.backgroundColor = [UIColor redColor];
+    // [_imperialMenu setBackgroundView:bg];
+
+    // manu's backgroud
+    UIEdgeInsets insets = { 0.0f, 12.0f, 0.0f, 30.0f };
+
+    UIImage *img = [[UIImage imageNamed:@"MenuBar-Long"] resizableImageWithCapInsets:insets];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:img];
+
+    bg.size = frame.size;
+
+    _imperialMenu.manuBackgroudView = bg;
+
+    // [self.view insertSubview:_imperialMenu belowSubview:_flowerView];
+    [self.view addSubview:_imperialMenu];
+
+}
+
+- (void) layoutImperialMenuTop
+{
+    CGRect frame = CGRectZero;
+
+    CGFloat closeSize = 44.0f;
+
+    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes) {
+
+        frame = CGRectMake((320.f - 275.0) / 2.f, -88 + closeSize, 275.0f, 88.0f);
+
+    } else {
+
+        frame = CGRectMake((320.f - 275.0) / 2.f,  -88 + closeSize, 275.0f, 88.0f);
+    }
+
+    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:closeSize openSize:45.0f direction:ImperialDirecitonTop];
+
+    _imperialMenu.delegate = self;
+
+    // _imperialMenu.disableBackgroundView = NO;
+
+    // UIView *bg = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // bg.backgroundColor = [UIColor redColor];
+    // [_imperialMenu setBackgroundView:bg];
+
+    // manu's backgroud
+    UIEdgeInsets insets = { 0.0f, 12.0f, 0.0f, 30.0f };
+
+    UIImage *img = [[UIImage imageNamed:@"MenuBar-Long"] resizableImageWithCapInsets:insets];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:img];
+
+    bg.size = frame.size;
+
+    _imperialMenu.manuBackgroudView = bg;
+
+    // [self.view insertSubview:_imperialMenu belowSubview:_flowerView];
+    [self.view addSubview:_imperialMenu];
+
+}
+
+- (void) layoutImperialMenuBottom
+{
+    CGRect frame = CGRectZero;
+
+    CGFloat closeSize = 44.0f;
+
+    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes) {
+
+        frame = CGRectMake((320.f - 275.0) / 2.f, self.view.frame.size.height - 44.0f, 275.0f, 88.0f);
+
+    } else {
+
+        frame = CGRectMake((320.f - 275.0) / 2.f, self.view.frame.size.height - 44.0f, 275.0f, 88.0f);
+    }
+
+    _imperialMenu = [[OLImperialMenuView alloc] initWithFrame:frame closeSize:closeSize openSize:45.0f direction:ImperialDirecitonBottom];
+
+    _imperialMenu.delegate = self;
+
+    // _imperialMenu.disableBackgroundView = NO;
+
+    // UIView *bg = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // bg.backgroundColor = [UIColor redColor];
+    // [_imperialMenu setBackgroundView:bg];
+
+    // manu's backgroud
+    UIEdgeInsets insets = { 0.0f, 12.0f, 0.0f, 30.0f };
+
+    UIImage *img = [[UIImage imageNamed:@"MenuBar-Long"] resizableImageWithCapInsets:insets];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:img];
+
+    bg.size = frame.size;
+
+    _imperialMenu.manuBackgroudView = bg;
+
+    // [self.view insertSubview:_imperialMenu belowSubview:_flowerView];
+    [self.view addSubview:_imperialMenu];
+
 }
 
 #pragma mark - OLImperialMenuViewDelegate
 
 - (UIView *) imperialMenuView:(OLImperialMenuView *)menuView decorateView:(UIView *)view
 {
-
     // user record
-    UIButton *btnRecord = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *recordImg = [UIImage imageNamed:@"icon-ItemUser(L).png"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 
-    [btnRecord setBackgroundImage:recordImg forState:UIControlStateNormal];
-    [btnRecord addTarget:self action:@selector(onRecord) forControlEvents:UIControlEventTouchUpInside];
-    [btnRecord setFrame:CGRectMake(22.0f, view.frame.size.height / 2.f - recordImg.size.height / 2.f, 57.f, 50.f)];
-    [view addSubview:btnRecord];
+    [btn setTitle:@"Button" forState:UIControlStateNormal];
 
-    // user setting
-    UIButton *btnSetting = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *settingImg = [UIImage imageNamed:@"icon-ItemSetting(L).png"];
+    [btn setFrame:CGRectMake((view.width - 60.0f) / 2.f - 20.0f, (view.height - 50.0f) / 2.f, 60.f, 50.f)];
 
-    [btnSetting setBackgroundImage:settingImg forState:UIControlStateNormal];
-    [btnSetting addTarget:self action:@selector(onSetting) forControlEvents:UIControlEventTouchUpInside];
-    [btnSetting setFrame:CGRectMake(btnRecord.right + 15.0f, view.frame.size.height / 2.f - settingImg.size.height / 2.f, 57.f, 50.f)];
-    [view addSubview:btnSetting];
-
-    // manual page
-    UIButton *btnManual = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *manualImg = [UIImage imageNamed:@"icon-ItemManual(L).png"];
-
-    [btnManual setBackgroundImage:manualImg forState:UIControlStateNormal];
-    [btnManual addTarget:self action:@selector(onInstruction) forControlEvents:UIControlEventTouchUpInside];
-    [btnManual setFrame:CGRectMake(btnSetting.right + 15.0f, view.frame.size.height / 2.f - manualImg.size.height / 2.f, 57.f, 50.f)];
-    [view addSubview:btnManual];
+    [view addSubview:btn];
 
     return view;
 }
@@ -135,8 +210,6 @@
 - (BOOL) imperialMenuViewWillMove:(OLImperialMenuView *)menuView open:(BOOL)open
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-
-    [self animateImperialMenu:NO];
 
     return YES;
 }
@@ -146,7 +219,6 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
     if (open == NO) {
-        [self animateImperialMenu:YES];
     }
 }
 
@@ -161,15 +233,11 @@
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
-    [self animateImperialMenu:NO];
-
-    // [self hidesViewsType1:YES];
 }
 
 - (BOOL) imperialMenuViewWillClose:(OLImperialMenuView *)menuView
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-
 
     return YES;
 }
@@ -178,25 +246,6 @@
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
-    [self animateImperialMenu:YES];
-
-    // [self hidesViewsType1:NO];
 }
-
-#pragma mark - miscellance
-
-- (void) onSetting
-{
-    NSLog(@"onSetting");
-}
-
-- (void) onInstruction
-{
-    NSLog(@"onInstruction");
-}
-
-- (void) onRecord
-{
-      NSLog(@"onRecord");}
 
 @end
